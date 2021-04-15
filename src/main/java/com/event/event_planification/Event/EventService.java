@@ -36,4 +36,11 @@ public class EventService {
     public void saveEvent(Event e){
         eventRepository.save(e);
     }
+
+    public void deleteEvent(Integer id){
+        if (!eventRepository.existsById(id)){
+            throw new IllegalStateException("event with id " + id + " not found");
+        }
+        eventRepository.deleteById(id);
+    }
 }

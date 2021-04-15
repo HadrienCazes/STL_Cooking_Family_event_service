@@ -30,7 +30,11 @@ public class EventController {
 
     @PostMapping(path = "/post")
     public void addEvent(@RequestBody Event event) {
-        System.out.println(event);
         eventService.saveEvent(event);
+    }
+
+    @DeleteMapping(path = "/delete/{eventid}")
+    public void deleteEvent(@PathVariable Integer id) {
+        eventService.deleteEvent(id);
     }
 }
